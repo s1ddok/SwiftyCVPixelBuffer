@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		9393EAB820AB6524003FB14D /* UniversalSwiftyCVPixelBuffer */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9393EAB920AB6524003FB14D /* Build configuration list for PBXAggregateTarget "UniversalSwiftyCVPixelBuffer" */;
+			buildPhases = (
+				9393EABC20AB653A003FB14D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalSwiftyCVPixelBuffer;
+			productName = UniversalSwiftyCVPixelBuffer;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		9393EA9C20AB6072003FB14D /* SwiftyCVPixelBuffer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9393EA9220AB6072003FB14D /* SwiftyCVPixelBuffer.framework */; };
 		9393EAA120AB6072003FB14D /* SwiftyCVPixelBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAA020AB6072003FB14D /* SwiftyCVPixelBufferTests.swift */; };
@@ -175,6 +189,9 @@
 					9393EA9A20AB6072003FB14D = {
 						CreatedOnToolsVersion = 9.4;
 					};
+					9393EAB820AB6524003FB14D = {
+						CreatedOnToolsVersion = 9.4;
+					};
 				};
 			};
 			buildConfigurationList = 9393EA8C20AB6072003FB14D /* Build configuration list for PBXProject "SwiftyCVPixelBuffer" */;
@@ -191,6 +208,7 @@
 			targets = (
 				9393EA9120AB6072003FB14D /* SwiftyCVPixelBuffer */,
 				9393EA9A20AB6072003FB14D /* SwiftyCVPixelBufferTests */,
+				9393EAB820AB6524003FB14D /* UniversalSwiftyCVPixelBuffer */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +229,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9393EABC20AB653A003FB14D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9393EA8D20AB6072003FB14D /* Sources */ = {
@@ -456,6 +490,24 @@
 			};
 			name = Release;
 		};
+		9393EABA20AB6524003FB14D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L7MP7X2MT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9393EABB20AB6524003FB14D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L7MP7X2MT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -482,6 +534,15 @@
 			buildConfigurations = (
 				9393EAAA20AB6072003FB14D /* Debug */,
 				9393EAAB20AB6072003FB14D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9393EAB920AB6524003FB14D /* Build configuration list for PBXAggregateTarget "UniversalSwiftyCVPixelBuffer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9393EABA20AB6524003FB14D /* Debug */,
+				9393EABB20AB6524003FB14D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
