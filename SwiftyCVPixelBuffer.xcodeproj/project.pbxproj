@@ -37,6 +37,7 @@
 		9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Utils.swift"; sourceTree = "<group>"; };
 		9393EAB020AB612D003FB14D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Codable.swift"; sourceTree = "<group>"; };
+		9393EAB720AB6433003FB14D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		9393EA8820AB6072003FB14D = {
 			isa = PBXGroup;
 			children = (
+				9393EAB720AB6433003FB14D /* README.md */,
 				9393EA9420AB6072003FB14D /* SwiftyCVPixelBuffer */,
 				9393EA9F20AB6072003FB14D /* SwiftyCVPixelBufferTests */,
 				9393EA9320AB6072003FB14D /* Products */,
