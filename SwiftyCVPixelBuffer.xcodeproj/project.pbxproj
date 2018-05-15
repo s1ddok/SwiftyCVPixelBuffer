@@ -13,6 +13,8 @@
 		9393EAAD20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */; };
 		9393EAAE20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */; };
 		9393EAB120AB612D003FB14D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9393EAB020AB612D003FB14D /* CoreVideo.framework */; };
+		9393EAB320AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
+		9393EAB420AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 		9393EAA220AB6072003FB14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Utils.swift"; sourceTree = "<group>"; };
 		9393EAB020AB612D003FB14D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Codable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 			children = (
 				9393EA9520AB6072003FB14D /* SwiftyCVPixelBuffer.h */,
 				9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */,
+				9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */,
 				9393EA9620AB6072003FB14D /* Info.plist */,
 			);
 			path = SwiftyCVPixelBuffer;
@@ -211,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9393EAB320AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
 				9393EAAD20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9393EAB420AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
 				9393EAA120AB6072003FB14D /* SwiftyCVPixelBufferTests.swift in Sources */,
 				9393EAAE20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */,
 			);
