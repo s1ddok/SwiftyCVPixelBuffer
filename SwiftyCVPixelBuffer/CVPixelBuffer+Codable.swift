@@ -8,9 +8,13 @@
 
 import CoreVideo.CVPixelBuffer
 
+public protocol CustomEncodable {
+    func encode(with encoder: Encoder) throws
+}
+
 public protocol CustomDecodable {
     associatedtype T
-    static func decode(with decoder: Decoder) -> T?
+    static func decode(with decoder: Decoder) throws -> T?
 }
 
 struct GenericCodingKeys: CodingKey {
@@ -39,8 +43,30 @@ extension GenericCodingKeys {
     }
 }
 
+public struct CVPixelBufferBox: Codable {
+    public var buffer: CVPixelBuffer?
+    
+    public init(_ pixelBuffer: CVPixelBuffer) {
+        self.buffer = pixelBuffer
+    }
+    
+    public init(from decoder: Decoder) throws {
+        do {
+            let buffer = try CVPixelBuffer.decode(with: decoder)
+            
+            self.buffer = buffer
+        } catch {
+            throw error
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        try self.buffer?.encode(with: encoder)
+    }
+}
+
 // NOTE: Attachments are not supported for now
-extension CVPixelBuffer: Encodable, CustomDecodable {
+extension CVPixelBuffer: CustomEncodable, CustomDecodable {
     public typealias T = CVPixelBuffer
     
     enum CodingKeys: String, CodingKey {
@@ -51,7 +77,7 @@ extension CVPixelBuffer: Encodable, CustomDecodable {
         case planes
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public func encode(with encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.planeCount, forKey: .planeCount)
         try container.encode(self.pixelFormat, forKey: .pixelFormat)
@@ -84,7 +110,7 @@ extension CVPixelBuffer: Encodable, CustomDecodable {
         }
     }
     
-    public static func decode(with decoder: Decoder) -> CVPixelBuffer? {
+    public static func decode(with decoder: Decoder) throws -> CVPixelBuffer? {
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
@@ -118,7 +144,7 @@ extension CVPixelBuffer: Encodable, CustomDecodable {
             
             return pb
         } catch {
-            return nil
+            throw error
         }
     }
 }

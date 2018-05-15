@@ -27,7 +27,6 @@
 		9393EAAD20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */; };
 		9393EAAE20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */; };
 		9393EAB120AB612D003FB14D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9393EAB020AB612D003FB14D /* CoreVideo.framework */; };
-		9393EAB520AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
 		9393EAB620AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
 /* End PBXBuildFile section */
 
@@ -251,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9393EAB520AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
 				9393EAAD20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

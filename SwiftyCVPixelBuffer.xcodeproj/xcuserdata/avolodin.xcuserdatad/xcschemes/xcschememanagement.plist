@@ -9,10 +9,28 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>UniversalSwiftyCVPixelBuffer.xcscheme</key>
+		<key>SwiftyCVPixelBufferTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>UniversalSwiftyCVPixelBuffer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9393EA9120AB6072003FB14D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9393EA9A20AB6072003FB14D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

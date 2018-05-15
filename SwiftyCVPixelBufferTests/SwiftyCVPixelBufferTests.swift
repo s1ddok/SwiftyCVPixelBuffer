@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreVideo
 @testable import SwiftyCVPixelBuffer
 
 class SwiftyCVPixelBufferTests: XCTestCase {
@@ -21,9 +22,20 @@ class SwiftyCVPixelBufferTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCodableRoundTrip() {
+        let jsonEncoder = JSONEncoder()
+        
+        let pb = CVPixelBuffer.create(width: 512, height: 512)
+        let pbBox = CVPixelBufferBox(pb!)
+        guard let data = try? jsonEncoder.encode(pbBox) else {
+            fatalError("Encoding of pixel buffer wasn't successful")
+        }
+        
+        let jsonDecoder = JSONDecoder()
+        let decodedBox = try? jsonDecoder.decode(CVPixelBufferBox.self, from: data)
+        
+        let decodedPb = decodedBox?.buffer
+        dump(decodedPb)
     }
     
     func testPerformanceExample() {
