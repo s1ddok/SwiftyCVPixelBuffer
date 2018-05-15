@@ -13,8 +13,8 @@
 		9393EAAD20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */; };
 		9393EAAE20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAAC20AB60CD003FB14D /* CVPixelBuffer+Utils.swift */; };
 		9393EAB120AB612D003FB14D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9393EAB020AB612D003FB14D /* CoreVideo.framework */; };
-		9393EAB320AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
-		9393EAB420AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
+		9393EAB520AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
+		9393EAB620AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9393EAB220AB6219003FB14D /* CVPixelBuffer+Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9393EAB320AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
+				9393EAB520AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
 				9393EAAD20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9393EAB420AB6219003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
+				9393EAB620AB62C6003FB14D /* CVPixelBuffer+Codable.swift in Sources */,
 				9393EAA120AB6072003FB14D /* SwiftyCVPixelBufferTests.swift in Sources */,
 				9393EAAE20AB60CD003FB14D /* CVPixelBuffer+Utils.swift in Sources */,
 			);
@@ -374,7 +374,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftyCVPixelBuffer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,7 +402,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftyCVPixelBuffer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
