@@ -125,6 +125,18 @@ public extension CVPixelBuffer {
     static var typeID: CFTypeID {
         return CVPixelBufferGetTypeID()
     }
+    
+    func fillExtendedPixels() -> CVReturn {
+        return CVPixelBufferFillExtendedPixels(self)
+    }
+    
+    func extendedPixels() -> (left: Int, right: Int, top: Int, bottom: Int) {
+        var eLeft: Int = 0, eRight: Int = 0, eTop: Int = 0, eBottom: Int = 0
+        CVPixelBufferGetExtendedPixels(self, &eLeft, &eRight, &eTop, &eBottom)
+        
+        return (eLeft, eRight, eTop, eBottom)
+        
+    }
 }
 
 extension CVPixelBuffer {
