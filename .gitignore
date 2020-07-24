@@ -1,0 +1,4 @@
+.swiftpm
+.build
+*.DS_Store
+gen
