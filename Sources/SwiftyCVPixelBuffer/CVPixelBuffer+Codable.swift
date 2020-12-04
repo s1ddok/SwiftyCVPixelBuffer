@@ -125,7 +125,7 @@ extension CVPixelBuffer: CustomEncodable, CustomDecodable {
         pixelBuffer.lockBaseAddress(options: [])
         defer { pixelBuffer.unlockBaseAddress(options: []) }
 
-        if (isPlanar) {
+        if isPlanar {
             let planesData = try container.nestedContainer(keyedBy: GenericCodingKeys.self,
                                                            forKey: .planes)
             for plane in 0 ..< planeCount {

@@ -171,7 +171,7 @@ extension CVPixelBuffer {
     func data() -> Data? {
         guard let source = self.baseAddress else { return nil }
         let height = self.height
-        let bytesPerRow = CVPixelBufferGetBytesPerRow(self)
+        let bytesPerRow = self.bytesPerRow
         return .init(bytes: source, count: height * bytesPerRow)
     }
 }
