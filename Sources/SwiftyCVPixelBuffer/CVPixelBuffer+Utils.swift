@@ -90,9 +90,7 @@ public extension CVPixelBuffer {
 
         CVPixelBufferCreate(nil, width, height, formatType, attachments, &_copy)
 
-        guard let copy = _copy else {
-            throw Error.allocationFailed
-        }
+        guard let copy = _copy else { throw Error.allocationFailed }
 
         CVPixelBufferLockBaseAddress(self, .readOnly)
         CVPixelBufferLockBaseAddress(copy, [])
@@ -106,11 +104,11 @@ public extension CVPixelBuffer {
 
 
         if pixelBufferPlaneCount == 0 {
-            let dest = CVPixelBufferGetBaseAddress(copy)
-            let source = CVPixelBufferGetBaseAddress(self)
-            let height = CVPixelBufferGetHeight(self)
-            let bytesPerRowSrc = CVPixelBufferGetBytesPerRow(self)
-            let bytesPerRowDest = CVPixelBufferGetBytesPerRow(copy)
+            let dest = copy.baseAddress
+            let source = self.baseAddress
+            let height = self.height
+            let bytesPerRowSrc = self.bytesPerRow
+            let bytesPerRowDest = copy.bytesPerRow
             if bytesPerRowSrc == bytesPerRowDest {
                 memcpy(dest, source, height * bytesPerRowSrc)
             } else {
@@ -125,9 +123,9 @@ public extension CVPixelBuffer {
 
         } else {
             for plane in 0 ..< pixelBufferPlaneCount {
-                let dest        = CVPixelBufferGetBaseAddressOfPlane(copy, plane)
-                let source      = CVPixelBufferGetBaseAddressOfPlane(self, plane)
-                let height      = CVPixelBufferGetHeightOfPlane(self, plane)
+                let dest = CVPixelBufferGetBaseAddressOfPlane(copy, plane)
+                let source = CVPixelBufferGetBaseAddressOfPlane(self, plane)
+                let height = CVPixelBufferGetHeightOfPlane(self, plane)
                 let bytesPerRowSrc = CVPixelBufferGetBytesPerRowOfPlane(self, plane)
                 let bytesPerRowDest = CVPixelBufferGetBytesPerRowOfPlane(copy, plane)
 
@@ -136,7 +134,7 @@ public extension CVPixelBuffer {
                 } else {
                     var startOfRowSrc = source
                     var startOfRowDest = dest
-                    for _ in 0..<height {
+                    for _ in 0 ..< height {
                         memcpy(startOfRowDest, startOfRowSrc, min(bytesPerRowSrc, bytesPerRowDest))
                         startOfRowSrc = startOfRowSrc?.advanced(by: bytesPerRowSrc)
                         startOfRowDest = startOfRowDest?.advanced(by: bytesPerRowDest)
