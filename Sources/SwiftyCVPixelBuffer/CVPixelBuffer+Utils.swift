@@ -20,6 +20,7 @@ public extension CVPixelBuffer {
     var pixelFormat: OSType { CVPixelBufferGetPixelFormatType(self) }
     var baseAddress: UnsafeMutableRawPointer? { CVPixelBufferGetBaseAddress(self) }
     var bytesPerRow: Int { CVPixelBufferGetBytesPerRow(self) }
+    var ioSurface: Unmanaged<IOSurfaceRef>? { CVPixelBufferGetIOSurface(self) }
 
     // MARK: - Functions
 
